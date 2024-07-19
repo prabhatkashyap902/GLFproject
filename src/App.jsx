@@ -5,7 +5,7 @@ import { ScrollControls, Sky, useScroll, useGLTF } from '@react-three/drei';
 
 function App() {
   return (
-    <Canvas shadows camera={{ position: [0, 0, 10] }} style={{ width: '100%', height: '100vh' }}>
+    <Canvas shadows camera={{ position: [0, 0, 10] }} style={{ width: '100wv', height: '100vh', margin:'-8px -8px' }}>
       {/* Ambient light to illuminate the model evenly */}
       <ambientLight intensity={0.4} />
 
@@ -32,7 +32,7 @@ function App() {
       {/* Spot light to add emphasis */}
       <spotLight
         angle={10}
-        color="#ffd0d0"
+        color="#000"
         penumbra={5}
         position={[25, 50, -20]}
         shadow-mapSize={[2048, 2048]}
@@ -69,8 +69,8 @@ function LittlestTokyo({ ...props }) {
   useFrame(() => {
     const offset = scroll.offset;
     scene.rotation.y = offset * Math.PI * 2; // Rotate around Y-axis
-    scene.position.set(-offset * 5, -offset * 5, 0); // Move to bottom-left
-    scene.scale.set(0.05 + 0.45 * (1 - offset), 0.05 + 0.45 * (1 - offset), 0.05 + 0.45 * (1 - offset)); // Scale down
+    scene.position.set(-offset * 10, -offset * 7, 0); // Move to bottom-left
+    scene.scale.set(0.1 + 0.45 * (1 - offset), 0.1 + 0.45 * (1 - offset), 0.1 + 0.45 * (1 - offset)); // Scale down
   });
 
   return <primitive object={scene} {...props} />;
